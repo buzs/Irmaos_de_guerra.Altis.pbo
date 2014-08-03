@@ -2503,7 +2503,7 @@
 			//<German>Du wurdest von %1 festgenommen</German>
 			//<French>Vous avez été menotté par %1</French>
 			//<Italian>%1 ti ha tolto le manette</Italian>
-			<Portuguese>Você foi solto por %1</Portuguese>
+			<Portuguese>Você foi algemado por %1</Portuguese>
 		</Key>
 	</Package>
 	<Package name="MISC_Strings">
@@ -2617,7 +2617,7 @@
 			//<German>Sirene AN</German>
 			//<French>Sirenes On</French>
 			//<Italian>Sirene accese</Italian>
-			<Portuguese>Sirene On</Portuguese>
+			<Portuguese>Sirene Ligada</Portuguese>
 		</Key>
 		<Key ID="STR_MISC_SirensOFF">
 			//<Original>Sirens Off</Original>
@@ -2625,7 +2625,7 @@
 			//<German>Sirene AUS</German>
 			//<French>Sirenes Off</French>
 			//<Italian>Sirene spente</Italian>
-			<Portuguese>Sirene Off</Portuguese>
+			<Portuguese>Sirene Desligada</Portuguese>
 		</Key>
 		<Key ID="STR_MISC_NoStorageWarn">
 			//<Original>You need to install storage containers to have storing capabilities!</Original>
@@ -2697,7 +2697,7 @@
 			//<German>Das Fahrzeug hat nicht so viele dieser Gegenstände.</German>
 			//<French>Le véhicule n'e contient pas autant de cet objet.</French>
 			//<Italian>Il veicolo non contiene così tanti oggetti.</Italian>
-			<Portuguese>A mala não tem toda essa contidade de items.</Portuguese>
+			<Portuguese>A mala não tem toda essa quantidade de items.</Portuguese>
 		</Key>
 	</Package>
 	<Package name="Housing_Strings">
@@ -2731,7 +2731,7 @@
 			//<German>Du hast die Tür abgeschlossen.</German>
 			//<French>Vous avez verrouillé la porte.</French>
 			//<Italian>Hai bloccato la porta.</Italian>
-			<Portuguese>VocÊ trancou a porta.</Portuguese>
+			<Portuguese>Você trancou a porta.</Portuguese>
 		</Key>
 		<Key ID="STR_House_Door_NotNear">
 			//<Original>You are not near a door!</Original>
