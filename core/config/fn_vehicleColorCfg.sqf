@@ -168,11 +168,18 @@ switch (_vehicle) do
 	{
 		_ret = 
 		[
-			["textures\ghosthawk_idg.jpg","cop"],
-			["textures\ghosthawk_idg2.jpg","cop"]
-
+			["textures\ghosthawk_idg.jpg","cop"]
 		];
 	};
+	
+		case "B_Heli_Transport_01_F":
+	{
+		_ret = 
+		[
+			["textures\ghosthawk_idg2.jpg","cop"]
+		];
+	};
+	
 	
 	case "B_MRAP_01_F":
 	{
