@@ -164,12 +164,21 @@ switch (_vehicle) do
 		];
 	};
 	
+		case "B_Heli_Transport_01_F":
+	{
+		_ret = 
+		[
+			["textures\ghosthawk_idg.jpg","cop"]
+
+		];
+	};
+	
 	case "B_MRAP_01_F":
 	{
 		_ret = 
 		[
 			["#(argb,8,8,3)color(0.05,0.05,0.05,1)","fed"],
-			["texture\hunter_idg.jpg","cop"]
+			["textures\hunter_idg.jpg","cop"]
 		];
 	};
 	
