@@ -21,8 +21,11 @@ switch (_side) do
 			["cop_spawn_2","Pyrgos HQ","\a3\ui_f\data\map\MapControl\fuelstation_ca.paa"],
 			["cop_spawn_3","Athira HQ","\a3\ui_f\data\map\GroupIcons\badge_rotate_0_gs.paa"],
 			["cop_spawn_4","Air HQ","\a3\ui_f\data\map\Markers\NATO\b_air.paa"],
-			["cop_spawn_5","HW Patrol","\a3\ui_f\data\map\GroupIcons\badge_rotate_0_gs.paa"],
-			["cop_spawn_6","Batalhão policial militar de Altis","\a3\ui_f\data\map\GroupIcons\badge_rotate_0_gs.paa"]
+			["cop_spawn_6","Batalhão Policial","\a3\ui_f\data\map\GroupIcons\badge_rotate_0_gs.paa"],
+			["cop_spawn_8","Sofia HQ","\a3\ui_f\data\map\GroupIcons\badge_rotate_0_gs.paa"],
+			["cop_spawn_7","HW Patrulha #1","\a3\ui_f\data\map\GroupIcons\badge_rotate_0_gs.paa"],
+			["cop_spawn_9","HW Patrulha #2","\a3\ui_f\data\map\GroupIcons\badge_rotate_0_gs.paa"],
+			["cop_spawn_5","HW Patrulha #3","\a3\ui_f\data\map\GroupIcons\badge_rotate_0_gs.paa"]
 		];
 	};
 	
@@ -34,8 +37,9 @@ switch (_side) do
 			["civ_spawn_3","Athira","\a3\ui_f\data\map\MapControl\watertower_ca.paa"],
 			["civ_spawn_4","Sofia","\a3\ui_f\data\map\MapControl\watertower_ca.paa"],
 			["spawn_donator","Doadores","\a3\ui_f\data\map\MapControl\watertower_ca.paa"],
-			["reb_spawn_1","Base Central Rebelde","\a3\ui_f\data\map\MapControl\watertower_ca.paa"],
-            ["reb_spawn_2","Base Iha Rebelde","\a3\ui_f\data\map\MapControl\watertower_ca.paa"]
+			["reb_spawn_1","HQ-Central","\a3\ui_f\data\map\MapControl\watertower_ca.paa"],
+            ["reb_spawn_2","HQ-Ilha","\a3\ui_f\data\map\MapControl\watertower_ca.paa"],
+			["reb_spawn_3","HQ-Thelos","\a3\ui_f\data\map\MapControl\watertower_ca.paa"]
 	    ];
 		
 		if(count life_houses > 0) then {

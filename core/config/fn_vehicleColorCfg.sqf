@@ -82,7 +82,7 @@ switch (_vehicle) do
 			["textures\med\suv_med_idg.jpg","Med"],
 			["textures\police_suv.paa","cop"],
 			["textures\ferrari_suv.paa","civ"],
-			["textures\SuperMarioSuv.paa","civ"]
+			["textures\SuperMarioSuv.jpg","civ"]
 		];
 	};
 	

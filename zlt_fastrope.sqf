@@ -4,9 +4,9 @@
 #define MAX_SPEED_ROPES_AVAIL 30
 
 
-#define STR_TOSS_ROPES "Toss Ropes"
-#define STR_FAST_ROPE "Fast Rope"
-#define STR_CUT_ROPES "Cut Ropes"
+#define STR_TOSS_ROPES "Jogar Cordas"
+#define STR_FAST_ROPE "Descer Cordas"
+#define STR_CUT_ROPES "Puxar Cordas"
 
 
 if (isdedicated) exitwith {};
