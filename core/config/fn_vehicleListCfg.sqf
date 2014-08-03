@@ -158,7 +158,7 @@ switch (_shop) do
 			["B_Heli_Light_01_F",200000],
 			["O_Heli_Light_02_unarmed_F",410000],
 			["I_Heli_Transport_02_F",900000],
-			["O_Heli_Attack_02_black_F",5000000]
+			["O_Heli_Attack_02_black_F",4000000]
 		];
 	};
 	
