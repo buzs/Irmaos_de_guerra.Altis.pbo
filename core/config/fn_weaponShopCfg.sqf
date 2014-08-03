@@ -448,7 +448,7 @@ switch(_shop) do
 						["SmokeShellYellow","Granada de Fumaça Amarela",2000],
 						["SmokeShellPurple","Granada de Fumaça Roxa",2000],
 						["SmokeShellBlue","Granada de Fumaça Azul",2000],
-						["SmokeShellOrange","Granada de Fumaça Laranja",2000],
+						["SmokeShellOrange","Granada de Fumaça Laranja",2000]
 					]
 				];
 			};
@@ -514,7 +514,7 @@ switch(_shop) do
 						["SmokeShellYellow","Granada de Fumaça Amarela",2000],
 						["SmokeShellPurple","Granada de Fumaça Roxa",2000],
 						["SmokeShellBlue","Granada de Fumaça Azul",2000],
-						["SmokeShellOrange","Granada de Fumaça Laranja",2000],
+						["SmokeShellOrange","Granada de Fumaça Laranja",2000]
 					]
 				];
 			};
