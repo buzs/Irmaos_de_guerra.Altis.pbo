@@ -4280,7 +4280,7 @@ class Mission
 					vehicle="B_RangeMaster_F";
 					leader=1;
 					skill=0.60000002;
-					init="this enableSimulation false;  this allowDamage false;  this addAction[""Loja de Veículos"",life_fnc_vehicleShopMenu,[""cop_car"",west,""cop_car_5_1_1"",""cop"",""APD - Highway Patrol""]];  this addAction[""Garagem"",  {   [[getPlayerUID player,playerSide,""Car"",player],""TON_fnc_getVehicles"",false,false] spawn life_fnc_MP;   createDialog ""Life_impound_menu"";   disableSerialization;   ctrlSetText[2802,""Procurando Veículos....""];   life_garage_sp = ""cop_car_5_1""; life_garage_type = ""Car"";  },"""",0,false,false,"""",'playerSide == west'];  this addAction[""Guardar Veiculo na Garagem"",life_fnc_storeVehicle,"""",0,false,false,"""",'!life_garage_store'];  ";
+					init="this enableSimulation false;  this allowDamage false;  this addAction[""Loja de Veículos"",life_fnc_vehicleShopMenu,[""cop_car"",west,""cop_33"",""cop"",""APD - Highway Patrol""]];  this addAction[""Garagem"",  {   [[getPlayerUID player,playerSide,""Car"",player],""TON_fnc_getVehicles"",false,false] spawn life_fnc_MP;   createDialog ""Life_impound_menu"";   disableSerialization;   ctrlSetText[2802,""Procurando Veículos....""];   life_garage_sp = ""cop_33""; life_garage_type = ""Car"";  },"""",0,false,false,"""",'playerSide == west'];  this addAction[""Guardar Veiculo na Garagem"",life_fnc_storeVehicle,"""",0,false,false,"""",'!life_garage_store'];  ";
 				};
 			};
 		};
@@ -76894,7 +76894,7 @@ class Mission
 		class Item265
 		{
 			position[]={17413.359,4.1815624,14103.038};
-			name="cop_car_5_1_1";
+			name="cop_33";
 			type="Empty";
 			angle=-163.12399;
 		};
