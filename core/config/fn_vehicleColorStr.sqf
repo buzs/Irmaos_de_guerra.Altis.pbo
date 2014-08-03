@@ -16,16 +16,16 @@ switch (_vehicle) do
 	{
 		switch (_index) do
 		{
-			case 0: {_color = "Red";};
-			case 1: {_color = "Yellow";};
-			case 2: {_color = "White";};
-			case 3: {_color = "Blue";};
-			case 4: {_color = "Dark Red";};
-			case 5: {_color = "Blue / White"};
-			case 6: {_color = "Black"};
-			case 7: {_color = "Black"};
-			case 8: {_color = "Taxi"};
-			case 9: {_color = "Médico"};
+			case 0: {_color = "Vermelho";};
+			case 1: {_color = "Amarelo";};
+			case 2: {_color = "Branco";};
+			case 3: {_color = "Azul";};
+			case 4: {_color = "Vermelho Escuro";};
+			case 5: {_color = "Azul e Branco"};
+			case 6: {_color = "Preto"};
+			case 7: {_color = "Preto"};
+			case 8: {_color = "Médico"};
+			case 9: {_color = "Taxi"};
 			case 10: {_color = "PM"};
 		};
 	};
@@ -156,6 +156,15 @@ switch (_vehicle) do
 	};
 	
 	case "I_Heli_light_03_unarmed_F":
+	{
+		switch (_index) do
+		{
+			case 0: {_color = "PM"};
+
+		};
+	};
+	
+	case "B_Heli_Transport_01_F":
 	{
 		switch (_index) do
 		{
