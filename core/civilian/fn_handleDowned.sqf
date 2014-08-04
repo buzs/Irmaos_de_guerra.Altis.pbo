@@ -1,74 +1,114 @@
 /*
 	File: fn_handleDowned.sqf
-	Author: Skalicon modded by Mahribar
+	Author: Skalicon
 	
 	Description: Downed state for rubber bullets
 */
-private["_unit","_shooter","_curWep","_curMags","_attach"];
-_unit = [_this,0,Objnull,[Objnull]] call BIS_fnc_param;
-_shooter = [_this,1,Objnull,[Objnull]] call BIS_fnc_param;
-if(isNull _unit OR isNull _shooter) exitWith {player allowDamage true; life_isdowned = false;};
-
-if(_shooter isKindOf "Man" && alive player) then
-{
-	if(!life_isdowned) then
-	{
-		life_isdowned = true;
-		player setDamage 0.5;
-		
-		_curWep = currentWeapon player;
-		_curMags = magazines player;
-		_attach = if(primaryWeapon player != "") then {primaryWeaponItems _unit} else {[]};
-		{player removeMagazine _x} foreach _curMags;
-		player removeWeapon _curWep;
-		player addWeapon _curWep;
-		if(count _attach != 0 && primaryWeapon _unit != "") then
-		{
-			{
-				_unit addPrimaryWeaponItem _x;
-			} foreach _attach;
-		};
-		if(count _curMags != 0) then
-		{
-			{player addMagazine _x;} foreach _curMags;
-		};
-	
-		_obj = "Land_ClutterCutter_small_F" createVehicle (getPosATL _unit);
-		_obj setPosATL (getPosATL _unit);
-		[[player,"AinjPfalMstpSnonWnonDf_carried_fallwc"],"life_fnc_animSync",true,false] spawn life_fnc_MP;
-		[[0,format["%1 Foi Atingido com bala de Borracha.", name _unit, name _shooter]],"life_fnc_broadcast",true,false] spawn life_fnc_MP;
-		_unit attachTo [_obj,[0,0,0]];
-		disableUserInput true;
-		sleep 8;
-		if(!(player getVariable "restrained")) then {
-			[[player,"AinjPpneMstpSnonWrflDnon"],"life_fnc_animSync",true,false] spawn life_fnc_MP;
-			sleep 22;
-		};
-		// Check Restrain every 15 seconds for "disableUserInput"
-		// I´m sure, it can be done better. Haven´t find a better way until now.
-		if(!(player getVariable "restrained")) then {
-			sleep 15;
-		};
-		if(!(player getVariable "restrained")) then {
-			sleep 15;
-		};
-		if(!(player getVariable "restrained")) then {
-			sleep 15;
-		};
-		if(!(player getVariable "restrained")) then {
-			sleep 15;
-		};
-		if (!(player getVariable "restrained")) then {
-			[[player,"amovppnemstpsraswrfldnon"],"life_fnc_animSync",true,false] spawn life_fnc_MP;
-		};
-		disableUserInput false;
-		detach player;
-		life_isdowned = false;
-		player allowDamage true;
+private["_obj","_inVehicle","_time","_downed","_hndlBlur","_hndlBlack","_eff1","_eff2","_effects","_dead","_source"];
+player setDamage 0;
+if (!life_isdowned) then {
+	_source = [_this,0,Objnull,[Objnull]] call BIS_fnc_param;
+	//[[format["%1 has been downed by %2.",name player, name _source]],"life_fnc_broadcast",true,false] spawn life_fnc_MP;
+	[[0,format["%1 has been downed by %2.",name player, name _source]],"life_fnc_broadcast",true,false] spawn life_fnc_MP; //testing
+	life_isdowned = true;
+	player setVariable["downed",true,true];
+	player setVariable["receiveFirstAid",false,false];
+	disableUserInput true;
+	_inVehicle = false;
+	if (vehicle player == player) then {
+		_obj = "Land_ClutterCutter_small_F" createVehicle (getPosATL player);
+		_obj setPosATL (getPosATL player);
+		player attachTo [_obj,[0,0,0]];
+		[[player,"AinjPfalMstpSnonWnonDf_carried_fallwc"],"life_fnc_animSync",true,false] spawn BIS_fnc_MP;
+		_inVehicle = false;
+	} else {
+		_inVehicle = true;
 	};
-}
-	else
-{
-	_unit allowDamage true;
+
+	_hndlBlur = ppEffectCreate ["DynamicBlur", 501];
+	_hndlBlur ppEffectEnable true;
+	_hndlBlur ppEffectAdjust [5];
+	_hndlBlur ppEffectCommit 0;
+
+	_hndlBlack = ppEffectCreate ["colorCorrections", 1501];
+	_hndlBlack ppEffectEnable true;
+	_hndlBlack ppEffectAdjust [1.0, 1.0, 0.0, [0, 0, 0, 0.9], [1.0, 1.0, 1.0, 1.0],[1.0, 1.0, 1.0, 0.0]];
+	_hndlBlack ppEffectCommit 0;
+	_effects = true;
+	_eff1 = 5;
+	_eff2 = 0.9;
+	_time = 0;
+	_downed = true;
+	_dead = false;
+	disableUserInput true;
+	while {_downed} do {
+		if (player getVariable["receiveFirstAid",false]) exitWith {_downed = false;player setVariable["receiveFirstAid",nil,true];[[player,"amovppnemstpsraswrfldnon"],"life_fnc_animSync",true,false] spawn BIS_fnc_MP;};
+		if (alive player) then {
+			if (!(player getVariable ["restrained",false])) then{
+				if (!(_inVehicle)) then{
+					if (_time == 8) then {[[player,"AinjPpneMstpSnonWrflDnon"],"life_fnc_animSync",true,false] spawn BIS_fnc_MP;};
+					if (_time == 30) then {  //testing
+						[[player,"amovppnemstpsraswrfldnon"],"life_fnc_animSync",true,false] spawn BIS_fnc_MP;
+						_downed = false;
+					};
+				} else {
+					if (vehicle player == player) then {
+						_obj = "Land_ClutterCutter_small_F" createVehicle (getPosATL player);
+						_obj setPosATL (getPosATL player);
+						player attachTo [_obj,[0,0,0]];
+						[[player,"AinjPfalMstpSnonWnonDf_carried_fallwc"],"life_fnc_animSync",true,false] spawn BIS_fnc_MP;
+						_time = 0;
+						_inVehicle = false;
+					};
+					if (_time == 30) then {_downed = false;}; //testing
+				};
+
+			} else {
+				_downed = false;
+			};
+		} else {
+			_downed = false;
+			_dead = true;
+		};
+		_time = _time + 1; 
+		sleep 1;
+	};
+	disableUserInput false;
+	[_hndlBlur,_hndlBlack,_eff1,_eff2,_effects] spawn {
+		_hndlBlur = _this select 0;
+		_hndlBlack = _this select 1;
+		_eff1 = _this select 2;
+		_eff2 = _this select 3;
+		_effects = _this select 4;
+		while {_effects} do {
+			_eff1 = _eff1 - 0.025;
+			_eff2 = _eff2 - 0.0045;
+
+			_hndlBlur ppEffectAdjust [_eff1];
+			_hndlBlur ppEffectCommit 0;
+			
+			_hndlBlack ppEffectAdjust [1.0, 1.0, 0.0, [0, 0, 0, _eff2], [1.0, 1.0, 1.0, 1.0],[1.0, 1.0, 1.0, 0.0]];
+			_hndlBlack ppEffectCommit 0;
+
+			sleep 0.01;
+			if (_eff2 <= 0) then {_effects = false;};
+		};
+		ppEffectDestroy _hndlBlur;
+		ppEffectDestroy _hndlBlack;
+	};
+	if (!(_inVehicle)) then{
+		detach player;
+		deleteVehicle _obj;
+	};
 	life_isdowned = false;
+	player setVariable["downed",false,true];
+	if (!(_dead)) then {
+		player setDamage 0.9;
+	};
+	disableUserInput false;
+	sleep 1;
+	disableUserInput false;
 };
+
+
+
